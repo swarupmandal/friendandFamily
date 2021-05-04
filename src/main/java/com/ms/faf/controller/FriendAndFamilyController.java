@@ -25,7 +25,7 @@ public class FriendAndFamilyController {
 	@Autowired
 	private FriendAndFamilyService service;
 	
-	@PostMapping(value = "/customers/{phoneNo}/friends", consumes = MediaType.APPLICATION_JSON_VALUE)
+	@PostMapping(value = "/customers/{phoneNo}/friends")
 	public void saveFriend(@PathVariable Long phoneNo, @RequestBody FriendAndFamilyDto dto) {
 		logger.info("Friend Creation request " + phoneNo+" - " + dto);
 		service.saveFriend(phoneNo, dto);
@@ -33,9 +33,9 @@ public class FriendAndFamilyController {
 	}
 	
 	
-	@GetMapping(value = "/customers/{phoneNo}/friends", consumes = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value = "/customers/{phoneNo}/friends")
 	public List<Long> getSpecificFriend(@PathVariable Long phoneNo){
-		logger.info("Fetching Friends Data");
+		System.out.println("<<<<<<<<<<<<Fetching Friends Data>>>>>>>>>>>>");
 		logger.info("Fetching Friend Data request " + phoneNo);
 		return service.getSpecificFriend(phoneNo);
 	}
